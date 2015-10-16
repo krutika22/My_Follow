@@ -1,0 +1,64 @@
+﻿@model IEnumerable<My_Follow.Models.InvitationForm>
+
+@{
+    ViewBag.Title = "Invitation Form";
+}
+
+<h2>List Of Invitations</h2>
+
+@*<p>
+   
+        @Html.ActionLink("Create New Invitation", "Create")
+    </p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+@*@if (Request.IsAuthenticated && User.IsInRole("Admin"))
+         {*@
+    
+    @*//{ onclick = "return 
+        ('Please check out your mail and get regsitered');" }*@
+
+            
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.ID }) |*@
+            @*@Html.ActionLink("Details", "Details", new { id=item.ID }) |*@
+    
+            @Html.ActionLink("Approve", "Approve", new { id = item.ID, email = item.Email, name = item.Name, companyname = item.CompanyName}, new { onclick = "javascript: alert('Check your mail and get registered')" }) |
+            @Html.ActionLink("Reject", "Delete", new { id=item.ID })
+
+         
+            @*@Html.RouteLink("Register","Account")*@
+        </td>
+    </tr>
+}
+
+</table>

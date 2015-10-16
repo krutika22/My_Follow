@@ -1,0 +1,50 @@
+﻿@model My_Follow.Models.Updates
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Updates</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @*<dt>
+            @Html.DisplayNameFor(model => model.EndUsersID)
+        </dt>*@
+
+        @*<dd>
+            @Html.DisplayFor(model => model.EndUsersID)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Intro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Intro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Details)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Details)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Photo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UpdatesID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
