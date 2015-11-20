@@ -10,6 +10,15 @@
     <h4>ProductOwners</h4>
     <hr />
     <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Email)
         </dt>
@@ -50,7 +59,7 @@
             @Html.DisplayFor(model => model.FoundedIn)
         </dd>
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.Street1)
         </dt>
 
@@ -96,8 +105,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.Pin)
-        </dd>
+        </dd>*@
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.ContactNumber)
         </dt>
@@ -129,6 +144,8 @@
         <dd>
             @Html.DisplayFor(model => model.FacebookPageURL)
         </dd>
+
+        
 
     </dl>
 </div>

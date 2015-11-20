@@ -1,0 +1,69 @@
+﻿@*@model IEnumerable<My_Follow.Models.Media>
+
+@{
+    ViewBag.Title = "Index";
+}*@
+
+<h2>Image Uploaded successfully  @ViewBag.Path</h2>
+
+
+
+@*@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+  <table>
+      <tr>
+          <td>
+              Image
+          </td>
+          <td> <input type="file" name="Images" id="Images" multiple /></td>
+      </tr>
+
+      <tr>
+          <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td>
+              <input type="submit" value="Upload" class="btn btn-default" />
+
+          </td>
+
+      </tr>
+  </table>
+}*@
+
+
+        @*<p>
+                @Html.ActionLink("Create New", "Create")
+            </p>*@
+            @*<table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Updates.Intro)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Images)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Video)
+                    </th>
+                    <th>Action</th>
+                </tr>
+
+            @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Updates.Intro)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Images)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Video)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.MediaID }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.MediaID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.MediaID })
+                    </td>
+                </tr>
+            }
+
+            </table>*@

@@ -1,0 +1,57 @@
+﻿@*@{
+    Layout = "~/Views/Media/Create.cshtml";
+}*@
+
+
+@model IEnumerable<My_Follow.Models.Media>
+
+@{
+    ViewBag.Title = "Uploads";
+}
+<h2> Sample Uploaded Video</h2>
+
+
+<video width="320" height="240" controls autoplay="autoplay">
+    <source src="@Url.Action("Uploads","Media")" type="video/mp4">
+</video>
+
+
+
+
+<p>
+        @Html.ActionLink("Download Video", "Index","Video")
+    </p>
+    @*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Updates.Intro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Images)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Video)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Updates.Intro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Images)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Video)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.MediaID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.MediaID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.MediaID })
+            </td>
+        </tr>
+    }
+
+    </table>*@

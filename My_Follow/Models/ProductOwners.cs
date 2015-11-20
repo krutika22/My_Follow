@@ -9,6 +9,8 @@ namespace My_Follow.Models
   public class ProductOwners
         {
             public int ProductOwnersID { get; set; }
+            public string Name { get; set; }
+
             public string Email { get; set; }
 
             public string CompanyName { get; set; }
@@ -55,8 +57,10 @@ namespace My_Follow.Models
                 }
             }
 
-            public virtual ICollection<Updates> PushUpdates { get; set; }
+            public virtual ICollection<Product> AddProducts { get; set; }
 
-        //    public virtual ICollection<Product> AddProducts { get; set; }
+      
+
+           
         }
     }

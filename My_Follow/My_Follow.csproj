@@ -195,27 +195,38 @@
     <Content Include="Views\InvitationForm\Edit.cshtml" />
     <Content Include="Views\InvitationForm\Index.cshtml" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
-    <Content Include="Views\Product\Create.cshtml" />
-    <Content Include="Views\Product\Delete.cshtml" />
-    <Content Include="Views\Product\Details.cshtml" />
-    <Content Include="Views\Product\Edit.cshtml" />
-    <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Views\Updates\Create.cshtml" />
-    <Content Include="Views\Updates\Delete.cshtml" />
-    <Content Include="Views\Updates\Details.cshtml" />
-    <Content Include="Views\Updates\Edit.cshtml" />
-    <Content Include="Views\Updates\Index.cshtml" />
-    <Content Include="Views\EndUsers\Create.cshtml" />
-    <Content Include="Views\EndUsers\Delete.cshtml" />
-    <Content Include="Views\EndUsers\Details.cshtml" />
-    <Content Include="Views\EndUsers\Edit.cshtml" />
-    <Content Include="Views\EndUsers\Index.cshtml" />
     <Content Include="Views\InvitationForm\Approve.cshtml" />
     <Content Include="Views\ProductOwners\Create.cshtml" />
     <Content Include="Views\ProductOwners\Delete.cshtml" />
     <Content Include="Views\ProductOwners\Details.cshtml" />
     <Content Include="Views\ProductOwners\Edit.cshtml" />
     <Content Include="Views\ProductOwners\Index.cshtml" />
+    <Content Include="Views\Account\Error.cshtml" />
+    <Content Include="Views\EndUsers\Create.cshtml" />
+    <Content Include="Views\EndUsers\Delete.cshtml" />
+    <Content Include="Views\EndUsers\Details.cshtml" />
+    <Content Include="Views\EndUsers\Edit.cshtml" />
+    <Content Include="Views\EndUsers\Index.cshtml" />
+    <Content Include="Views\Updates\Create.cshtml" />
+    <Content Include="Views\Updates\Delete.cshtml" />
+    <Content Include="Views\Updates\Details.cshtml" />
+    <Content Include="Views\Updates\Edit.cshtml" />
+    <Content Include="Views\Updates\Index.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Media\Create.cshtml" />
+    <Content Include="Views\Media\Delete.cshtml" />
+    <Content Include="Views\Media\Details.cshtml" />
+    <Content Include="Views\Media\Edit.cshtml" />
+    <Content Include="Views\Media\Index.cshtml" />
+    <Content Include="Views\Media\Uploads.cshtml" />
+    <Content Include="Views\EndUsers\Products.cshtml" />
+    <Content Include="Views\Video\View.cshtml" />
+    <Content Include="Views\Video\Index.cshtml" />
+    <Content Include="Views\Updates\Browse.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -227,8 +238,12 @@
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Web.config" />
-    <Content Include="Views\Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\UsersAdmin\Index.cshtml" />
     <Content Include="Views\UsersAdmin\Edit.cshtml" />
     <Content Include="Views\UsersAdmin\Details.cshtml" />
@@ -278,16 +293,108 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvitationFormController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MediaController.cs" />
     <Compile Include="Controllers\ProductOwnersController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\UpdatesController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
+    <Compile Include="Controllers\VideoController.cs" />
+    <Compile Include="CustomResult\VideoResult.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201510141214405_Changed123.cs" />
     <Compile Include="Migrations\201510141214405_Changed123.Designer.cs">
       <DependentUpon>201510141214405_Changed123.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510210810158_Changes21.cs" />
+    <Compile Include="Migrations\201510210810158_Changes21.Designer.cs">
+      <DependentUpon>201510210810158_Changes21.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510211000258_Changed21.cs" />
+    <Compile Include="Migrations\201510211000258_Changed21.Designer.cs">
+      <DependentUpon>201510211000258_Changed21.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510220602275_Changes22.cs" />
+    <Compile Include="Migrations\201510220602275_Changes22.Designer.cs">
+      <DependentUpon>201510220602275_Changes22.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510220726213_changes222.cs" />
+    <Compile Include="Migrations\201510220726213_changes222.Designer.cs">
+      <DependentUpon>201510220726213_changes222.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510220920304_changes322.cs" />
+    <Compile Include="Migrations\201510220920304_changes322.Designer.cs">
+      <DependentUpon>201510220920304_changes322.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510221041221_changes422.cs" />
+    <Compile Include="Migrations\201510221041221_changes422.Designer.cs">
+      <DependentUpon>201510221041221_changes422.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510230721092_Changes23.cs" />
+    <Compile Include="Migrations\201510230721092_Changes23.Designer.cs">
+      <DependentUpon>201510230721092_Changes23.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510230724080_Changes223.cs" />
+    <Compile Include="Migrations\201510230724080_Changes223.Designer.cs">
+      <DependentUpon>201510230724080_Changes223.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510240919180_Changes124.cs" />
+    <Compile Include="Migrations\201510240919180_Changes124.Designer.cs">
+      <DependentUpon>201510240919180_Changes124.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510271329418_Changes127.cs" />
+    <Compile Include="Migrations\201510271329418_Changes127.Designer.cs">
+      <DependentUpon>201510271329418_Changes127.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510300634058_Changes130.cs" />
+    <Compile Include="Migrations\201510300634058_Changes130.Designer.cs">
+      <DependentUpon>201510300634058_Changes130.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510300658296_Changes230.cs" />
+    <Compile Include="Migrations\201510300658296_Changes230.Designer.cs">
+      <DependentUpon>201510300658296_Changes230.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510300659425_Changes330.cs" />
+    <Compile Include="Migrations\201510300659425_Changes330.Designer.cs">
+      <DependentUpon>201510300659425_Changes330.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510310724063_Changes131.cs" />
+    <Compile Include="Migrations\201510310724063_Changes131.Designer.cs">
+      <DependentUpon>201510310724063_Changes131.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511020647286_Changes102.cs" />
+    <Compile Include="Migrations\201511020647286_Changes102.Designer.cs">
+      <DependentUpon>201511020647286_Changes102.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511020849416_Changes202.cs" />
+    <Compile Include="Migrations\201511020849416_Changes202.Designer.cs">
+      <DependentUpon>201511020849416_Changes202.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511030636116_changes103.cs" />
+    <Compile Include="Migrations\201511030636116_changes103.Designer.cs">
+      <DependentUpon>201511030636116_changes103.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511031249539_changes203.cs" />
+    <Compile Include="Migrations\201511031249539_changes203.Designer.cs">
+      <DependentUpon>201511031249539_changes203.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511031332238_Changed3.cs" />
+    <Compile Include="Migrations\201511031332238_Changed3.Designer.cs">
+      <DependentUpon>201511031332238_Changed3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511031334197_Changed31.cs" />
+    <Compile Include="Migrations\201511031334197_Changed31.Designer.cs">
+      <DependentUpon>201511031334197_Changed31.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511040528264_Changes401.cs" />
+    <Compile Include="Migrations\201511040528264_Changes401.Designer.cs">
+      <DependentUpon>201511040528264_Changes401.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511190928546_Followerschange.cs" />
+    <Compile Include="Migrations\201511190928546_Followerschange.Designer.cs">
+      <DependentUpon>201511190928546_Followerschange.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -296,16 +403,88 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\InvitationForm.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Media.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductOwners.cs" />
     <Compile Include="Models\Updates.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\EndUsersIndexData.cs" />
+    <Compile Include="ViewModel\FollowedProducts.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201510141214405_Changed123.resx">
       <DependentUpon>201510141214405_Changed123.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510210810158_Changes21.resx">
+      <DependentUpon>201510210810158_Changes21.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510211000258_Changed21.resx">
+      <DependentUpon>201510211000258_Changed21.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510220602275_Changes22.resx">
+      <DependentUpon>201510220602275_Changes22.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510220726213_changes222.resx">
+      <DependentUpon>201510220726213_changes222.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510220920304_changes322.resx">
+      <DependentUpon>201510220920304_changes322.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510221041221_changes422.resx">
+      <DependentUpon>201510221041221_changes422.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510230721092_Changes23.resx">
+      <DependentUpon>201510230721092_Changes23.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510230724080_Changes223.resx">
+      <DependentUpon>201510230724080_Changes223.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510240919180_Changes124.resx">
+      <DependentUpon>201510240919180_Changes124.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510271329418_Changes127.resx">
+      <DependentUpon>201510271329418_Changes127.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510300634058_Changes130.resx">
+      <DependentUpon>201510300634058_Changes130.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510300658296_Changes230.resx">
+      <DependentUpon>201510300658296_Changes230.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510300659425_Changes330.resx">
+      <DependentUpon>201510300659425_Changes330.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510310724063_Changes131.resx">
+      <DependentUpon>201510310724063_Changes131.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511020647286_Changes102.resx">
+      <DependentUpon>201511020647286_Changes102.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511020849416_Changes202.resx">
+      <DependentUpon>201511020849416_Changes202.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511030636116_changes103.resx">
+      <DependentUpon>201511030636116_changes103.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511031249539_changes203.resx">
+      <DependentUpon>201511031249539_changes203.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511031332238_Changed3.resx">
+      <DependentUpon>201511031332238_Changed3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511031334197_Changed31.resx">
+      <DependentUpon>201511031334197_Changed31.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511040528264_Changes401.resx">
+      <DependentUpon>201511040528264_Changes401.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511190928546_Followerschange.resx">
+      <DependentUpon>201511190928546_Followerschange.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -138,12 +138,73 @@ namespace IdentitySample.Controllers
             }
         }
 
+        ApplicationDbContext db = new ApplicationDbContext();
 
-        
+
         [AllowAnonymous]
         public ActionResult Register(string Token, string Email)
         {
-            
+
+            //  string urlToken = this.Request.QueryString["Token"]
+
+            var any = (from i in db.Invitationforms
+                        where (i.Token == Token)
+                        && (i.Email == Email)
+                        select i).Any();
+            //bool any = db.Invitationforms.Where(x => x.Token == Token && x.Email == Email).Any();
+                
+         //   db.SaveChanges();
+            if (any == true)
+            {
+               // return RedirectToAction("Register", "Account");
+                return View("Register");
+          
+            }
+        
+
+            else if (Token == null || Email == null)
+            {
+                return View("Error");
+            }
+            return View();
+    
+        }                                                     
+
+
+                //MembershipUser user = Membership.GetUser(new Guid(token));
+                //if (!user.IsApproved)
+                //{
+                //    user.IsApproved = true;
+                //    Membership.UpdateUser(user);
+                //    FormsAuthentication.SetAuthCookie(user.UserName, false);
+                //    return RedirectToAction("Register");
+                //}
+         
+            //ApplicationUser user = this.UserManager.FindByEmail(Token);
+            //if (user != null)
+            //{
+            //    if(user.Email==Email)
+            //}
+            //the token came and email also
+            //now you will do the whole regitration process
+            // this 
+
+
+            //here you will check that if this token is registerd with this email or not
+            // if yes then only you will allow to open registraion form
+            //else not
+
+
+
+            // if valid then registraion form should be opened
+
+
+
+
+
+
+
+
             //if (!string.IsNullOrEmpty(Token) || !string.IsNullOrEmpty(Email))
             //    Session["Token"] = Token;
             //Session["Email"] = Email;
@@ -160,7 +221,7 @@ namespace IdentitySample.Controllers
            
             //ViewBag.Email = strEmail;
 
-            //string urlToken = this.Request.QueryString["Token"];
+           
             //string token = Request.Cookies["Token"].Value;
             //if ((urlToken == token))
             //{
@@ -171,7 +232,7 @@ namespace IdentitySample.Controllers
 
             //}
            // string token = Guid.NewGuid().ToString();
-             return View();
+            
 
              //string token = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
 
@@ -194,11 +255,11 @@ namespace IdentitySample.Controllers
 
           //   }
 
-         //   Token = RouteData.Values["id"].ToString();
+           //Token = RouteData.Values["id"].ToString();
            
 
-            //var routeData = Token.RouteData;
-            //var stringValue = routeData.Values["id"].ToString();
+           // var routeData = Token.RouteData;
+           // var stringValue = routeData.Values["id"].ToString();
            // var model = ApplicationDbContext.Equals(Token);
           
             //if (!string.IsNullOrEmpty(token))
@@ -225,7 +286,7 @@ namespace IdentitySample.Controllers
             //    return RedirectToAction("Login");
             //}
            
-        }
+       
 
        
    
@@ -237,6 +298,11 @@ namespace IdentitySample.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+
+           
+
+
+
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
@@ -255,7 +321,10 @@ namespace IdentitySample.Controllers
 
 
                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                   return RedirectToAction("Index", "Home");
+
+                   // once he presses registraion button control will come here
+                   //and only after success ful registraion here that token will be either emptied in database so that next time no one can use that token
+                   return RedirectToAction("Create", "ProductOwners");
                 }
                 AddErrors(result);
             }

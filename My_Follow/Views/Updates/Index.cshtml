@@ -4,33 +4,33 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Updates</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Post new Update", "Create")
 </p>
 <table class="table">
     <tr>
-        @*<th>
-            @Html.DisplayNameFor(model => model.EndUsersID)
-        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Products.ProductName)
+    
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Intro)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Details)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Photo)
-        </th>
-        <th></th>
+        <th>Action</th>
+       
     </tr>
 
 @foreach (var item in Model) {
+    
     <tr>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.EndUsersID)
-        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Products.ProductName)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Intro)
         </td>
@@ -38,13 +38,16 @@
             @Html.DisplayFor(modelItem => item.Details)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Photo)
-        </td>
-        <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.UpdatesID }) |
             @Html.ActionLink("Details", "Details", new { id=item.UpdatesID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UpdatesID })
+            @Html.ActionLink("Delete", "Delete", new { id = item.UpdatesID })  |
+            @Html.ActionLink("Attach Media", "Redirect", new { id = item.UpdatesID })
+            
         </td>
+        <td>
+           
+        </td>
+
     </tr>
 }
 

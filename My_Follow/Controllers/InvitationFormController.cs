@@ -176,41 +176,45 @@ namespace My_Follow.Controllers
        
 
         //[ValidateAntiForgeryToken]
-        public async Task<ActionResult> Approve(InvitationForm model,string Token,string Email)
+        public async Task<ActionResult> Approve(InvitationForm model)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-
                     model.Status = "Approved";
+                    var token = Guid.NewGuid();
+
+                    model.Token = token.ToString();
                     db.Entry(model).State = EntityState.Modified;
-                    db.SaveChanges();
-                    var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
-                    //  user.ConfirmEmail = false;
-                    user.EmailConfirmed = false;
-                    var emailConfirmationCode = await _userManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                       //  _userManager.UpdateAsync(user);
-                    //var result = await UserManager.ConfirmEmail(userId, code);
-                    var result = await UserManager.ConfirmEmailAsync(Token, Email);
-                    if (result.Succeeded)
-                    {
+                    db.SaveChanges(); 
+                   
+                    //var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+                    ////  user.ConfirmEmail = false;
+                    //user.EmailConfirmed = false;
+                    //var emailConfirmationCode = await _userManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    //   //  _userManager.UpdateAsync(user);
+                    ////var result = await UserManager.ConfirmEmail(userId, code);
+                    //var result = await UserManager.ConfirmEmailAsync(Token, Email);
+                    //if (result.Succeeded)
+                    //{
 
                         System.Net.Mail.MailMessage m = new System.Net.Mail.MailMessage(
-                        new System.Net.Mail.MailAddress("support@promactinfo.com", "Web Registration"),
-                        new System.Net.Mail.MailAddress(user.Email));
+                        new System.Net.Mail.MailAddress("support@promactinfo.com", "Web Registration"), new System.Net.Mail.MailAddress(model.Email));
+                       // new System.Net.Mail.MailAddress("support@promactinfo.com", "Web Registration"),                        
                         m.Subject = "Email confirmation";
                         m.Body = string.Format("Dear {0} <BR/>Your invitation has been approved, please click on the below link to complete your registration: <a href=\"{1}\" title=\"User Email Confirm\">{1}</a>",
-                        user.UserName, Url.Action("Register", "Account",
-                        new { Token = user.Id, Email = user.Email }, Request.Url.Scheme));
+                        model.Name, Url.Action("Register", "Account",
+                        new { Token = token, Email = model.Email }, Request.Url.Scheme));
                         m.IsBodyHtml = true;
                         System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("webmail.promactinfo.com");
+                       // smtp.Credentials = new System.Net.NetworkCredential("thakkarkrutika27@gmail.com", "Java2015@kt");
                         smtp.Credentials = new System.Net.NetworkCredential("support@promactinfo.com", "Promact2011");
                         smtp.EnableSsl = false;
                         smtp.Send(m);
 
-                        return RedirectToAction("ConfirmEmail", "Account", new { Email = user.Email });
-                    }
+                     //   return RedirectToAction("ConfirmEmail", "Account", new { Email = user.Email });
+                   // }
 
                     //else
                     //{

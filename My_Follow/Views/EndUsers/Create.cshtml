@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Complete your Details</h2>
 
 @using (Html.BeginForm()) 
 {
@@ -14,25 +14,14 @@
         <h4>EndUsers</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.UpdatesID)
-        @Html.HiddenFor(model => model.ProductID)
 
-
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.UpdatesID, "UpdatesID", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor("UpdatesID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.UpdatesID, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
-        </div>*@
-
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.ProductID, "ProductID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor("ProductID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ProductID, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -121,6 +110,46 @@
                 @Html.ValidationMessageFor(model => model.ContactNumber, "", new { @class = "text-danger" })
             </div>
         </div>
+
+<div class="form-group">
+<div class="col-md-offset-2 col-md-10">
+ <table>
+ <tr>
+@{
+    int cnt = 0;
+    List<My_Follow.ViewModel.FollowedProducts> products = ViewBag.Products;
+
+    foreach (var product in products)
+    {
+        if (cnt++ % 3 == 0)
+        {
+             @:</tr><tr>
+         }
+
+                        @:<td>
+                            <input type="checkbox"
+                                   name="followedProducts"
+                                   value="@product.ProductID"
+                                   @(Html.Raw(product.Followed ? "checked=\"checked\"" : "")) />
+                                   @product.ProductID @:  @product.ProductName
+
+    
+
+                            @:</td>
+                           }
+
+                        @:</tr>
+
+                        }
+                    </table>
+                </div>
+            </div>
+
+
+
+
+
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

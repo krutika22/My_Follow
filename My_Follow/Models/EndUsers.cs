@@ -10,8 +10,10 @@ namespace My_Follow.Models
     {
         public int EndUsersID { get; set; }
 
-        public int UpdatesID { get; set; }
-        public int ProductID { get; set; }
+        public string Name { get; set; }
+
+        //public int UpdatesID { get; set; }
+        //public int ProductID { get; set; }
         public string Email { get; set; }
 
         [Display(Name = "Date Of Joining")]
@@ -56,9 +58,8 @@ namespace My_Follow.Models
 
 
 
-       public virtual Product Product { get; set; }
+       public virtual ICollection<Product> Products { get; set; }
 
-       public virtual Updates Updates { get; set; }
-
+     //  public virtual ICollection<Updates> ReceiveUpdates { get; set; }
     }
 }

@@ -47,7 +47,7 @@ namespace My_Follow.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductOwnersID,Email,CompanyName,Description,DateOfJoining,FoundedIn,Street1,Street2,City,State,Country,Pin,ContactNumber,WebsiteURL,FacebookPageURL")] ProductOwners productOwners)
+        public ActionResult Create([Bind(Include = "ProductOwnersID,Name,Email,CompanyName,Description,DateOfJoining,FoundedIn,Street1,Street2,City,State,Country,Pin,ContactNumber,WebsiteURL,FacebookPageURL")] ProductOwners productOwners)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +80,7 @@ namespace My_Follow.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductOwnersID,Email,CompanyName,Description,DateOfJoining,FoundedIn,Street1,Street2,City,State,Country,Pin,ContactNumber,WebsiteURL,FacebookPageURL")] ProductOwners productOwners)
+        public ActionResult Edit([Bind(Include = "ProductOwnersID,Name,Email,CompanyName,Description,DateOfJoining,FoundedIn,Street1,Street2,City,State,Country,Pin,ContactNumber,WebsiteURL,FacebookPageURL")] ProductOwners productOwners)
         {
             if (ModelState.IsValid)
             {
@@ -127,3 +127,37 @@ namespace My_Follow.Controllers
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //var currentUser = User.Identity.GetUserId();
+            //var LoggedInUser = db.ProductOwners.FirstOrDefault(x => x.Email == currentUser);
+            //if (Id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //   // ViewBag.ProductOwnersID = Id;
+            //}
+            //Product product = db.Products.Find(Id);
+            //if (product == null)
+            //{
+            //    return HttpNotFound();
+            //}
+           
+            //    ViewBag.ProductOwnersID = Id.Value;

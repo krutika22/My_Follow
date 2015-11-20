@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using My_Follow.Models;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -49,6 +50,7 @@ namespace IdentitySample.Models
         public DbSet<Product> Products { get; set; }
 
         public DbSet<Updates> Updates { get; set; }
+        public DbSet<Media> Media { get; set; }
 
      //   public System.Data.Entity.DbSet<My_Follow.Models.ProductOwners> ProductOwners { get; set; }
 
@@ -56,7 +58,19 @@ namespace IdentitySample.Models
 
         //public System.Data.Entity.DbSet<My_Follow.Models.ViewInvitationRequests> ViewInvitationRequests { get; set; }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
 
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            modelBuilder.Entity<Product>()
+                .HasMany(c => c.EndUsers).WithMany(i => i.Products)
+                .Map(t => t.MapLeftKey("ProductID")
+                    .MapRightKey("EndUsersID")
+                    .ToTable("Followers"));
+        }
 
     }
 }

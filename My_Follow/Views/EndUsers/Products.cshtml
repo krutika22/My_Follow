@@ -1,0 +1,131 @@
+﻿@*@{
+    Layout = "~/Views/EndUsers/Create.cshtml";
+}*@
+
+
+@model IEnumerable<My_Follow.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+
+}
+
+
+
+
+@*<script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>*@
+@*<script type="text/javascript">
+
+    $(function () {
+        $('.btn-large').click(function () {
+            var txt = $(this).val()
+            if (txt == '+ Follow') {
+                $(this).val('- Unfollow');
+                return false;
+            }
+            else if (txt == '- Unfollow') {
+                $(this).val('+ Follow');
+                return false;
+            }
+        });
+    })
+
+</script>*@
+
+
+<h2>List Of Products</h2>
+
+
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.ProductOwners.Name)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Details)
+        </th>
+    
+    </tr>
+
+
+   
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.ProductOwners.Name)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Details)
+                </td>
+
+
+                @*<td>
+                    <input type="checkbox" name="followedProducts" value="Products.ProductID"
+                           @(Html.Raw(course.Assigned ? "checked=\"checked\"" : "")) />
+
+
+                </td>*@
+
+
+
+                <td>
+                    @Html.ActionLink("Browse Updates","Redirect", new { id = item.ProductID })
+                </td>
+            </tr>
+        }
+
+</table>
+
+
+
+
+<table>
+    <tr>
+        @{
+           
+            List<My_Follow.ViewModel.FollowedProducts> products = ViewBag.Products;
+
+            foreach (var product in products)
+            {
+
+                @:<td>
+             
+                    <input type="checkbox"
+                           name=""
+                           value="@product.ProductID"
+                           @(Html.Raw(product.Followed ? "checked=\"checked\"" : "")) />
+                  
+
+                    @:</td>
+             
+                    }
+                    
+                    @:</tr>
+           
+               
+        }
+    </table>
+
+
+
+
+
+
+
+
+
+@using (Html.BeginForm("Products","EndUsers"))
+      {
+    @Html.AntiForgeryToken()
+
+
+        <input type="submit" value="Save" class="btn btn-default" />
+
+}

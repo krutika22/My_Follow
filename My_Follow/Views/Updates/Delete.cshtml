@@ -11,13 +11,13 @@
     <h4>Updates</h4>
     <hr />
     <dl class="dl-horizontal">
-        @*<dt>
-            @Html.DisplayNameFor(model => model.EndUsersID)
-        </dt>*@
+        <dt>
+            @Html.DisplayNameFor(model => model.Products.ProductName)
+        </dt>
 
-        @*<dd>
-            @Html.DisplayFor(model => model.EndUsersID)
-        </dd>*@
+        <dd>
+            @Html.DisplayFor(model => model.Products.ProductName)
+        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Intro)
@@ -33,14 +33,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.Details)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Photo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Photo)
         </dd>
 
     </dl>

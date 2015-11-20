@@ -22,32 +22,43 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-
-               
-                    
                     <li>@Html.ActionLink("Invitation Form", "Create", "InvitationForm")</li>
-                    <li>@Html.ActionLink("EndUsers", "Index", "EndUsers")</li>
-                    @*<li>@Html.ActionLink("Products", "Index", "Product")</li>*@
-                    <li>@Html.ActionLink("Product Owners", "", "ProductOwners")</li>
+                  
+           
+
+                    @*<li>@Html.ActionLink("End Users", "List", "Products")</li>*@
+
+               @if (Request.IsAuthenticated && User.IsInRole("EndUsers"))
+              {
+                    <li>@Html.ActionLink("EndUsers", "Create", "EndUsers")</li>
+               }
+            
+
 
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {
 
-                        // <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
-                      //   <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
+                         <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
+                         <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
                  
                      
                        <li>@Html.ActionLink("View Invitation Requests", "Index", "InvitationForm")</li>
                        
                     } 
 
-                 
+                @if (Request.IsAuthenticated && User.IsInRole("ProductOwners"))
+                {
 
+                    <li>@Html.ActionLink("Product Owners", "", "ProductOwners")</li>
+                    <li>@Html.ActionLink("Products", "Create", "Products")</li>
+                }
                 </ul>
               @Html.Partial("_LoginPartial") 
+     
+
             </div>
         </div>
     </div>
